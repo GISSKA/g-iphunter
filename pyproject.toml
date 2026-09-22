@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "g-iphunter"
+version = "1.0.0"
+description = "G-IPHunter — OSINT & Threat Intelligence IP analysis orchestrator for security analysts"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "GISSKA" }]
+keywords = ["osint", "threat-intelligence", "cybersecurity", "ip", "shodan", "reputation"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Security",
+    "License :: OSI Approved :: MIT License",
+    "Environment :: Console",
+]
+dependencies = [
+    "requests>=2.31,<3",
+    "reportlab>=4.2,<5",
+    "pillow>=11.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4", "ruff>=0.4"]
+
+[project.scripts]
+g-iphunter = "g_iphunter.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/GISSKA/g-iphunter"
+Issues = "https://github.com/GISSKA/g-iphunter/issues"
+
+[tool.setuptools.packages.find]
+include = ["g_iphunter*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
